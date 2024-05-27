@@ -2,17 +2,17 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-ARCoreProject/[Ll]ibrary/
-ARCoreProject/[Tt]emp/
-ARCoreProject/[Oo]bj/
-ARCoreProject/[Bb]uild/
-ARCoreProject/[Bb]uilds/
-ARCoreProject/[Ll]ogs/
-ARCoreProject/[Uu]ser[Ss]ettings/
+AR Core Project/[Ll]ibrary/
+AR Core Project/[Tt]emp/
+AR Core Project/[Oo]bj/
+AR Core Project/[Bb]uild/
+AR Core Project/[Bb]uilds/
+AR Core Project/[Ll]ogs/
+AR Core Project/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
-ARCoreProject/[Mm]emoryCaptures/
+AR Core Project/[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
@@ -65,7 +65,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Packed Addressables
-ARCoreProject/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+AR Core Project/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
 ARCoreProject/[Aa]ssets/[Ss]treamingAssets/aa.meta
