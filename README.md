@@ -18,7 +18,7 @@ Opaque Layer Mast - PortalCOntents만 해제
 
 
 ### 사용 애셋
-[Unity Learn | 3D Beginner: Tutorial Resources | URP] (https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-learn-3d-beginner-complete-project-urp-143846)
+[Unity Learn | 3D Beginner: Tutorial Resources | URP](https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-learn-3d-beginner-complete-project-urp-143846)
 
 
 ----
