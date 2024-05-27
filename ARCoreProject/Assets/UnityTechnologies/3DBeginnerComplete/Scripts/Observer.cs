@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Observer : MonoBehaviour
 {
+
+    // 석상 근처에 가면 게임 종료
+
     public Transform player;
     public GameEnding gameEnding;
 

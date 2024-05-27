@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
+
+    // 게임 엔딩 탈출 or 사망
+
     public float fadeDuration = 1f;
     public float displayImageDuration = 1f;
     public GameObject player;

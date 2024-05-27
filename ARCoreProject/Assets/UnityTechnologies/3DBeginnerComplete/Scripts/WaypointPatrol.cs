@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class WaypointPatrol : MonoBehaviour
 {
+
+    // 유령 내비게이션 AI
+
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
 
@@ -12,7 +15,7 @@ public class WaypointPatrol : MonoBehaviour
 
     void Start ()
     {
-        navMeshAgent.SetDestination (waypoints[0].position);
+        navMeshAgent.SetDestination(waypoints[0].position);
     }
 
     void Update ()
@@ -20,7 +23,7 @@ public class WaypointPatrol : MonoBehaviour
         if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
         {
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-            navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
+            navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
         }
     }
 }

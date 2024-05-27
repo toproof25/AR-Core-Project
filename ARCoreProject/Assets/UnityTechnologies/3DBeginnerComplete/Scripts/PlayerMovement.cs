@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    // 플레이어 이동 컴포넌트
+
     public InputAction MoveAction;
     
     public float turnSpeed = 20f;
