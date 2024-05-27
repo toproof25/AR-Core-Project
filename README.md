@@ -13,10 +13,12 @@ Opaque Layer Mast - PortalCOntents만 해제
 
 ### 환경 설정
 - AR 코어 템플릿 + 애셋(프로젝트 설정은 import하지 않고 실행)
+- Unity Learn | 3D Beginner: Tutorial Resources | URP 에샛을 import할 때 프로젝트 설정도 모두 오버라이드가 된다.
+- 문제는 오버라이드를 하면 AR Core 설정도 변경되어 AR이 제대로 작동하지 않음.
 
 
 ### 사용 애셋
-Unity Learn | 3D Beginner: Tutorial Resources | URP
+[Unity Learn | 3D Beginner: Tutorial Resources | URP] (https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-learn-3d-beginner-complete-project-urp-143846)
 
 
 ----
