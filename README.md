@@ -11,5 +11,9 @@ AR - 포탈 - 상호작용 가능 게임 제작
 Project Settings - Quality - Rendering - Render Pipeline Asset -> 포탈 렌더러
 Opaque Layer Mast - PortalCOntents만 해제
 
+### 환경 설정
+- AR 코어 템플릿 + 애셋(프로젝트 설정은 import하지 않고 실행)
+
+
 ### 사용 애셋
 Unity Learn | 3D Beginner: Tutorial Resources | URP
