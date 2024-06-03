@@ -46,8 +46,9 @@ public class PlaceOnPlaneNewInputSystem : MonoBehaviour
             var hitPose = hits[0].pose;
             GameObject spawnedObject = null;
 
+
             // 생성된 오브젝트의 개수가 5개로 제한하는 코드
-            if (box.Count < 5)
+            if (box.Count < 1)
             {
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
                 box.Add(spawnedObject);

@@ -56,7 +56,15 @@ public class GameEnding : MonoBehaviour
         {
             if (doRestart)
             {
-                SceneManager.LoadScene (0);
+                player.transform.localPosition = new Vector3(-0.666406631f, -1.94180942f, -28.3788204f);
+                Debug.Log("restart");
+
+                imageCanvasGroup.alpha = 0f;
+                m_IsPlayerCaught = false;
+                m_HasAudioPlayed = false;
+                m_Timer = 0f;
+
+                //SceneManager.LoadScene ("ARScene 1");
             }
             else
             {
