@@ -11,6 +11,8 @@ public class GameEnding : MonoBehaviour
     public CanvasGroup caughtBackgroundImageCanvasGroup;
     public AudioSource caughtAudio;
 
+    public Transform playerSpawn;
+
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
     float m_Timer;
@@ -56,7 +58,7 @@ public class GameEnding : MonoBehaviour
         {
             if (doRestart)
             {
-                player.transform.localPosition = new Vector3(-0.666406631f, -1.94180942f, -28.3788204f);
+                player.transform.localPosition = playerSpawn.localPosition;
                 Debug.Log("restart");
 
                 imageCanvasGroup.alpha = 0f;
