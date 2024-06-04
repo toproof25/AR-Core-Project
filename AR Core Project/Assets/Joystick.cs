@@ -58,7 +58,6 @@ public class Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private void InputControlVector()
     {
         playerMovement.move(inputVector);
-        // Debug.Log(inputVector);
         // 캐릭터에게 입력벡터를 전달
     }
 
@@ -66,7 +65,6 @@ public class Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (isInput)
         {
-            //Debug.Log("Update : " + inputVector.x + " / " + inputVector.y);
             InputControlVector();
         }
     }

@@ -5,9 +5,10 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(ARRaycastManager))]
-public class PlaceOnPlaneNewInputSystem : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
 
     [SerializeField]
@@ -20,6 +21,11 @@ public class PlaceOnPlaneNewInputSystem : MonoBehaviour
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     List<GameObject> box = new List<GameObject>();
+
+
+    public GameObject Canvas;
+    private bool isStart = false;
+
 
     private void Awake()
     {
@@ -48,6 +54,13 @@ public class PlaceOnPlaneNewInputSystem : MonoBehaviour
     }
     private bool IsPointerOverUI(Vector2 touchPosition)
     {
+        if (isStart == false)
+        {
+            isStart = true;
+            Canvas.SetActive(true);
+        }
+
+
         // EventSystem과 Raycaster를 통해 UI 체크
         PointerEventData eventData = new PointerEventData(EventSystem.current)
         {

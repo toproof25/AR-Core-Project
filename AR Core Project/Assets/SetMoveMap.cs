@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class SetMoveMap : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject player; 
-    
+    private GameObject player;
+
+    [SerializeField]
+    private NavMeshSurface navMeshSurface;
+
+    [SerializeField]
+    List<NavMeshAgent> agents = new List<NavMeshAgent>();
+
     public void setPositionMap()
     {
         // 메인 카메라 참조
@@ -39,6 +47,18 @@ public class SetMoveMap : MonoBehaviour
 
             // 맵의 위치를 새로 설정
             transform.position = newMapPosition;
+
+
+            // 내비메쉬 데이터 업데이트
+            navMeshSurface.BuildNavMesh();
+
+            // 모든 적의 NavMeshAgent를 재배치
+            foreach (NavMeshAgent agent in agents)
+            {
+                agent.Warp(agent.transform.position); // 현재 위치에서 내비메쉬 경로를 재설정
+            }
+
+
         }
         else
         {
