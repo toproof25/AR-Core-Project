@@ -22,6 +22,7 @@ public class GameStart : MonoBehaviour
 
     List<GameObject> box = new List<GameObject>();
 
+    GameObject Trackables = null;
 
     public GameObject Canvas;
     private bool isStart = false;
@@ -52,6 +53,16 @@ public class GameStart : MonoBehaviour
             //
         }; 
     }
+
+    private void Update()
+    {
+        if (Trackables = null)
+        {
+            Trackables = gameObject.transform.Find("Trackables").gameObject;
+        }
+    }
+
+    // UI 검사 함수
     private bool IsPointerOverUI(Vector2 touchPosition)
     {
         if (isStart == false)
@@ -74,9 +85,7 @@ public class GameStart : MonoBehaviour
         return results.Count > 0;
     }
 
-
-
-
+    // 누르면 실행됨
     private void OnPress(Vector3 position)
     {
 
