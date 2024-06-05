@@ -24,7 +24,10 @@ public class GameStart : MonoBehaviour
 
     GameObject Trackables = null;
 
+    public GameObject GameMap;
     public GameObject Canvas;
+    public GameObject AR_Canvas;
+    public GameObject Audio;
     private bool isStart = false;
 
 
@@ -38,40 +41,24 @@ public class GameStart : MonoBehaviour
         controls.control.touch.performed += _ => {
             var touchPosition = Pointer.current.position.ReadValue();
 
-            Debug.Log(touchPosition);
+            //Debug.Log(touchPosition);
             // UI가 터치된 경우 OnPress를 실행하지 않음
             if (!IsPointerOverUI(touchPosition))
-            {
                 OnPress(touchPosition);
-            }
-
-
-            //OnPress(touchPosition);
         }; 
 
-        controls.control.touch.canceled += _ => { 
-            //
-        }; 
+        controls.control.touch.canceled += _ => { }; 
     }
 
     private void Update()
     {
-        if (Trackables = null)
-        {
+        if (Trackables == null)
             Trackables = gameObject.transform.Find("Trackables").gameObject;
-        }
     }
 
     // UI 검사 함수
     private bool IsPointerOverUI(Vector2 touchPosition)
     {
-        if (isStart == false)
-        {
-            isStart = true;
-            Canvas.SetActive(true);
-        }
-
-
         // EventSystem과 Raycaster를 통해 UI 체크
         PointerEventData eventData = new PointerEventData(EventSystem.current)
         {
@@ -88,7 +75,6 @@ public class GameStart : MonoBehaviour
     // 누르면 실행됨
     private void OnPress(Vector3 position)
     {
-
         if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon))
         {
             // 첫번째로 닿은 raycast hit 오브젝트
@@ -96,7 +82,15 @@ public class GameStart : MonoBehaviour
             GameObject spawnedObject = null;
 
 
-            // 생성된 오브젝트의 개수가 5개로 제한하는 코드
+            // 처음 게임 시작 시 UI가 생기고, 벽에 플랜 메쉬를 안보이게
+            if (isStart == false)
+                GameStartInit();
+
+            // 포탈을 새로 생성할 때 마다 맵을 카메라 기준 아래로 이동
+            //GameMap.GetComponent<SetMoveMap>().setPositionMap();
+ 
+
+            // 포탈 개수를 1개로 제한하는 코드
             if (box.Count < 1)
             {
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
@@ -104,7 +98,7 @@ public class GameStart : MonoBehaviour
             }
             else
             {
-                // 5개를 초과하는 생성일 경우, 1번째 오브젝트를 제거 후 오브젝트를 Add함
+                // 1개를 초과하는 생성일 경우, 제거 후 오브젝트를 Add함
                 Destroy(box[0]);
                 box.RemoveAt(0);
 
@@ -112,11 +106,23 @@ public class GameStart : MonoBehaviour
                 box.Add(spawnedObject);
             }
 
-            // 생성된 오브젝트 방향을 내 방향으로
-            //Vector3 lookPos = Camera.main.transform.position - spawnedObject.transform.position;
-            //lookPos.y = 0;
-            //spawnedObject.transform.rotation = Quaternion.LookRotation(lookPos);
+            AR_Canvas.transform.position = spawnedObject.transform.position + (Vector3.up*0.2f) + (Vector3.forward*0.4f);
+
+
         }
+    }
+
+    // 게임 시작 시 실행 함수
+    private void GameStartInit()
+    {
+        SendMessge.Instance.ShowMessage("Game start!!! Find the key and escape!");
+
+        isStart = true;
+        GameMap.SetActive(true);
+        Audio.SetActive(true);
+        Trackables.SetActive(false);
+        Canvas.SetActive(true);
+        AR_Canvas.SetActive(true);
     }
 
     private void OnEnable()
