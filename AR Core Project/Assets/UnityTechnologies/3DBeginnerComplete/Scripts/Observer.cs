@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Observer : MonoBehaviour
 {
     public Transform player;
     public GameEnding gameEnding;
-
     bool m_IsPlayerInRange;
+
+    // 추가 변수
+    private ZombieAttack zombie;
+
+    private void Start()
+    {
+        zombie = transform.parent.gameObject.GetComponent<ZombieAttack>();
+    }
 
     void OnTriggerEnter (Collider other)
     {
         if (other.transform == player)
         {
+            // 좀비라면 플레이어와 닿을 시 공격을 수행
+            if (zombie != null)
+            {
+                zombie.Attack(other);
+            }
             m_IsPlayerInRange = true;
         }
     }

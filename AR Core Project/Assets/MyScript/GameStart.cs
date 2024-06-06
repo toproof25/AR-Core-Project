@@ -11,19 +11,26 @@ using Unity.VisualScripting;
 public class GameStart : MonoBehaviour
 {
 
+    // 포탈 프리팹 설정
     [SerializeField]
     [Tooltip("클릭 시 나타나는 오브젝트 프리팹")]
     GameObject placedPrefab;
 
+    // 입력 시스템 가져오기
     Touch_control controls;
 
+    // AR레이 변수 설정
     ARRaycastManager aRRaycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-    List<GameObject> box = new List<GameObject>();
+    // 포탈 개수 설정
+    List<GameObject> portal = new List<GameObject>();
 
+    // AR플랜 메쉬 오브젝트
     GameObject Trackables = null;
 
+
+    // 각 변수 설정
     public GameObject GameMap;
     public GameObject Canvas;
     public GameObject AR_Canvas;
@@ -31,6 +38,7 @@ public class GameStart : MonoBehaviour
     private bool isStart = false;
 
 
+    // 터치 컨트롤 이벤트 연결
     private void Awake()
     {
         aRRaycastManager = GetComponent<ARRaycastManager>();
@@ -41,7 +49,6 @@ public class GameStart : MonoBehaviour
         controls.control.touch.performed += _ => {
             var touchPosition = Pointer.current.position.ReadValue();
 
-            //Debug.Log(touchPosition);
             // UI가 터치된 경우 OnPress를 실행하지 않음
             if (!IsPointerOverUI(touchPosition))
                 OnPress(touchPosition);
@@ -50,16 +57,16 @@ public class GameStart : MonoBehaviour
         controls.control.touch.canceled += _ => { }; 
     }
 
+    // 게임 시작 시 XR Origin의 Trackables자식을 가져옴(AR 플랜인식하면 생성되는 메쉬들 -> 게임 시작 시 안보이게 하기 위함)
     private void Update()
     {
         if (Trackables == null)
             Trackables = gameObject.transform.Find("Trackables").gameObject;
     }
 
-    // UI 검사 함수
+    // 클릭한 곳 UI인지 검사
     private bool IsPointerOverUI(Vector2 touchPosition)
     {
-        // EventSystem과 Raycaster를 통해 UI 체크
         PointerEventData eventData = new PointerEventData(EventSystem.current)
         {
             position = touchPosition
@@ -68,7 +75,6 @@ public class GameStart : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
-        // UI가 존재하는지 여부 반환
         return results.Count > 0;
     }
 
@@ -77,7 +83,6 @@ public class GameStart : MonoBehaviour
     {
         if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon))
         {
-            // 첫번째로 닿은 raycast hit 오브젝트
             var hitPose = hits[0].pose;
             GameObject spawnedObject = null;
 
@@ -91,22 +96,23 @@ public class GameStart : MonoBehaviour
  
 
             // 포탈 개수를 1개로 제한하는 코드
-            if (box.Count < 1)
+            if (portal.Count < 1)
             {
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-                box.Add(spawnedObject);
+                portal.Add(spawnedObject);
             }
             else
             {
                 // 1개를 초과하는 생성일 경우, 제거 후 오브젝트를 Add함
-                Destroy(box[0]);
-                box.RemoveAt(0);
+                Destroy(portal[0]);
+                portal.RemoveAt(0);
 
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-                box.Add(spawnedObject);
+                portal.Add(spawnedObject);
             }
 
-            AR_Canvas.transform.position = spawnedObject.transform.position + (Vector3.up*0.2f) + (Vector3.forward*0.4f);
+            // 목숨 UI 위치 조절
+            AR_Canvas.transform.position = spawnedObject.transform.position + (Vector3.up*0.2f) + (Vector3.forward*0.6f);
 
 
         }
