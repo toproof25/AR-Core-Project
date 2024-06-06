@@ -34,7 +34,16 @@
 
 
 ### 사용 애셋
-[Unity Learn | 3D Beginner: Tutorial Resources | URP](https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-learn-3d-beginner-complete-project-urp-143846)
+- [Unity Learn | 3D Beginner: Tutorial Resources | URP](https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-learn-3d-beginner-complete-project-urp-143846)
+- [Zombie](https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232)
+- [Free Zombie Character Sounds](https://assetstore.unity.com/packages/audio/sound-fx/creatures/free-zombie-character-sounds-141740)
+- [Rust Key](https://assetstore.unity.com/packages/vfx/particles/hit-impact-effects-free-218385)
+- [Hit Impact Effects FREE](https://assetstore.unity.com/packages/vfx/particles/hit-impact-effects-free-218385)
+
+
+### 참고 문서
+- [조이스틱 이동](https://wergia.tistory.com/231)
+
 
 ----
 
