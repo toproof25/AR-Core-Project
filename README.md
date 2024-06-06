@@ -1,9 +1,16 @@
 # AR-Core-Project
 ### Unity 2022.3.8f1
 ### AR 프로그래밍 기말 프로젝트
-AR - 포탈 - 상호작용 가능 게임 제작
-
 ----
+
+## 게임 진행 방법
+- AR Plane을 벽을 인식
+- 터치를 통해 포탈을 생성(포탈을 통해서만 맵을 볼 수 있다)
+- 조이스틱으로 플레이어를 이동
+- 열쇠를 획득
+- 몬스터를 피해 탈출 지점까지 이
+
+
 
 ### 환경 설정
 - AR Core 템플릿으로 프로젝트 생성
@@ -36,7 +43,8 @@ AR - 포탈 - 상호작용 가능 게임 제작
 - 맵 레이어 PortalCOntents - Opaque  
 - Project Settings - Quality - Rendering - Render Pipeline Asset -> 렌더러 설정 
 - Opaque Layer Mask - PortalContents만 해제
-- Transparent Layer Mask - PortalContents 해제
+- Transparent ![1 AR 인식](https://github.com/toproof25/AR_Project/assets/41888060/39c2da13-2b1f-4270-919d-08a801a2b34e)
+Layer Mask - PortalContents 해제
 
 ### 렌더링 포탈-맵 마스크 문제
 - Portal 렌더러 설정값은 의도한대로 문제는 없었으나 게임을 실행하면 메인카메라, 프로젝트 렌더러가 기존 URP-Perfomant로 설정이됨
