@@ -4,24 +4,24 @@
 ----
 
 ## 게임 진행 방법
-- AR Plane을 벽을 인식   
+1. AR Plane을 벽을 인식   
 ![1 AR 인식](https://github.com/toproof25/AR_Project/assets/41888060/49a882af-f24f-4052-997f-e80292c82b1a)
 
   
-- 터치를 통해 포탈을 생성(포탈을 통해서만 맵을 볼 수 있다)
-- - 조이스틱으로 플레이어를 이동   
+2. 터치를 통해 포탈을 생성(포탈을 통해서만 맵을 볼 수 있다)
+3. 조이스틱으로 플레이어를 이동   
 ![2 포탈 생성 후 조이스틱 이동](https://github.com/toproof25/AR_Project/assets/41888060/f3784539-fcb1-4222-8321-b8b2062ee76d)
 
   
-- 열쇠를 획득   
+4. 열쇠를 획득   
 ![3  아이템 획득](https://github.com/toproof25/AR_Project/assets/41888060/203cb4d2-41ae-407f-bcc5-29e587334624)
 
 
-- 몬스터를 피해서 이동(공격 받으면 목숨이 깎인다)   
+5. 몬스터를 피해서 이동(공격 받으면 목숨이 깎인다)   
 ![4  공격 피격](https://github.com/toproof25/AR_Project/assets/41888060/550f63a7-6e1a-4b15-a772-ef9eed111e80)
 
 
-- 탈출 지점까지 이동   
+6. 탈출 지점까지 이동   
 ![5  탈출](https://github.com/toproof25/AR_Project/assets/41888060/2135e596-c5f8-4847-9ef0-868ecf6d6d15)
 
 
