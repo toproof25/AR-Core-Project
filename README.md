@@ -56,7 +56,7 @@
 ### 기존 애셋을 수정한 스크립트 (수정 내용)
 - Observer (OnTriggerEnter가 되면 좀비 공격 수행하도록 수정)
 - PlayerMovement (조이스틱 위치와 카메라 방향에 따라 이동하도록 변경)
-- GameEnding (게임 종료 조건을 목숨 3번으로 변)
+- GameEnding (게임 종료 조건을 목숨 3번으로 변경)
 ----
 
 ### 수정한 내용
