@@ -46,10 +46,17 @@ public class Joystick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // 이동 계산 함수
     public void ControlJoystickLever(PointerEventData eventData)
     {
+        // 방향을 구한다 (원점과 드래그 위치)
         var inputDir = eventData.position - rectTransform.anchoredPosition;
+
+        // 레버 UI가 범위를 넘어가지 않게 제한
         var clampedDir = inputDir.magnitude < leverRange ? inputDir : inputDir.normalized * leverRange;
+
         lever.anchoredPosition = clampedDir;
-        inputVector = clampedDir / leverRange;
+
+        // 이동 방향 정규화
+        inputVector = clampedDir.normalized;
+
     }
 
     // 드래그 끝나면 이동 멈추기
