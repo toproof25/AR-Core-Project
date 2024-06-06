@@ -101,8 +101,7 @@
 - 맵 레이어 PortalCOntents - Opaque  
 - Project Settings - Quality - Rendering - Render Pipeline Asset -> 렌더러 설정 
 - Opaque Layer Mask - PortalContents만 해제
-- Transparent ![1 AR 인식](https://github.com/toproof25/AR_Project/assets/41888060/39c2da13-2b1f-4270-919d-08a801a2b34e)
-Layer Mask - PortalContents 해제
+- 모든 오브젝트를 Opaque로만 설정하여 깔끔하게 사라지도록 구현
 
 ### 렌더링 포탈-맵 마스크 문제 해결
 - Portal 렌더러 설정값은 의도한대로 문제는 없었으나 게임을 실행하면 메인카메라, 프로젝트 렌더러가 기존 URP-Perfomant로 설정이됨
